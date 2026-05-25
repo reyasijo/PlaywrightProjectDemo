@@ -16,6 +16,6 @@ export class ProductStorePage{
    {
     await this.page.locator(`//a[text()='${selectitemname}']`).click()
     await this.itemaddtocart.click()
-    console.log(selectitemname + " is added to cart")
+    console.log(selectitemname + " is added to cart1")
    }
 }
