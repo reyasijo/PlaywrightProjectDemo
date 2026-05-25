@@ -1,0 +1,2 @@
+Alert message is: Product added.
+Alert message is: Product added.

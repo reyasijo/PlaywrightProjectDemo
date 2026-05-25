@@ -1,0 +1,2 @@
+Newq Alert message is:Wrong password.
+Alert message in test: Wrong password.
