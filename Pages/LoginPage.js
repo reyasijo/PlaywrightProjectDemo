@@ -5,6 +5,7 @@ export class LoginPage{
         this.loginusename=page.locator('#loginusername')
         this.loginpwd=page.locator('#loginpassword')
         this.loginbtn2=page.locator("//button[@onclick='logIn()']")
+        this.logoutbtn=page.locator('#logout2')
     }
 
     async loginWithCreds(user,pass)
@@ -20,4 +21,7 @@ export class LoginPage{
         await this.loginbtn2.click()
     }
 
-     }
+    async logout()
+     {
+        await this.logoutbtn.click()
+     }}

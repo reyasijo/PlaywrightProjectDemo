@@ -4,14 +4,13 @@ export class AlertHandler{
          this.page=page
     }
     
-    async handleAlert(dialog,expectedMessage)
+    async handleAlert(expectedMessage)
     {
-        //const dialog=await this.page.waitForEvent('dialog') // wait for alert
-        const message=dialog.message() //get message
-        //console.log("Alert message is:", message)
-        await expect(message).toBe(expectedMessage)
+        this.page.on('dialog', async dialog=>{
+        expect(dialog.message()).toBe(expectedMessage) 
+        console.log("Alert message is:", dialog.message())
         await dialog.accept()
-        return message
+       })
         
     }
 
