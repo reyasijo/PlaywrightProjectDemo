@@ -29,16 +29,9 @@ export class SignupPage{
 
     async signUpClose()
     {
-        await this.signUpCloseBtn.nth(2).click()
+        await this.signUpCloseBtn.nth(1).click()
     }
 
 }
 
  
-        /*
-        this.page.on('dialoge',async dialog=>
-             {
-        expect(dialog.message()).toBe('Sign successful.')
-        await dialog.accept()
-             }
-                 ) */
