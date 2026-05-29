@@ -19,9 +19,14 @@ export class LoginPage{
     async clickLogin()
     {
         await this.loginbtn2.click()
+
     }
 
     async logout()
      {
         await this.logoutbtn.click()
+        const title=await this.page.title()
+        console.log("Title after logout is:", title)
+        return title
+        
      }}

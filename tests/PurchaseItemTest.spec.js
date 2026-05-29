@@ -4,7 +4,8 @@ import { LoginPage } from '../Pages/LoginPage'
 import { ProductStorePage } from '../Pages/ProductStorePage'
 import { AlertHandler } from '../Utils/AlertHandler'
 import { CartPage } from '../Pages/CartPage'
-import { userData } from '../TestData/userData'
+import dataset from '../Utils/testdata.json'
+
 let signuppage
 let loginpage
 let productstorepage
@@ -23,33 +24,37 @@ test.beforeEach(async ({ page }) => {
 test('7.Add any item to cart',async({page})=>
 {
   
-     await loginpage.loginWithCreds(userData.loginvalidusername,userData.loginvalidpassword)
+     await loginpage.loginWithCreds(dataset.login.loginvalidusername,dataset.login.loginvalidpassword)
      await loginpage.clickLogin()
-     await productstorepage.addItemToCart('Samsung galaxy s6')
-     await alerthandler.handleAlert('Product is added.')
+     await productstorepage.addItemToCart(dataset.productdata.anyitem)
+     await alerthandler.handleAlert(dataset.productdata.productaddedalert)
 })
     
 test('8.Purchase Phone',async({page})=>
 {
- await loginpage.loginWithCreds(userData.loginvalidusername,userData.loginvalidpassword)
+ await loginpage.loginWithCreds(dataset.login.loginvalidusername,dataset.login.loginvalidpassword)
  await loginpage.clickLogin()
- await productstorepage.selectCategory('Phones')
- await alerthandler.handleAlert('Product added.')
- await productstorepage.addItemToCart('Iphone 6 32gb') 
- await alerthandler.handleAlert('Product added.')
- await cartpage.placeorder('Iphone 6 32gb')
-
+ await productstorepage.selectCategory(dataset.productdata.phonecategory)
+ //await alerthandler.handleAlert('Product added.')
+ await productstorepage.addItemToCart(dataset.productdata.phoneitem)
+ await alerthandler.handleAlert(dataset.productdata.productaddedalert)
+ const orderConfirmationText = await cartpage.placeorder(dataset.productdata.phoneitem)
+ expect(orderConfirmationText.trim()).toContain('Thank you for your purchase!')
  })
 
 test('9.Purchase Monitor',async({page})=> 
 {
-    await loginpage.loginWithCreds(userData.loginvalidusername,userData.loginvalidpassword)
-    await loginpage.clickLogin()               
-    await productstorepage.selectCategory('Monitors')
-    await alerthandler.handleAlert('Product added.')
-     await productstorepage.addItemToCart('Apple monitor 24')
-    await alerthandler.handleAlert('Product added.')
-    await cartpage.placeorder('Apple monitor 24')
+    await loginpage.loginWithCreds(dataset.login.loginvalidusername,dataset.login.loginvalidpassword)
+    await loginpage.clickLogin()    
+    console.log("Selected category is:", dataset.productdata.monitorcategory)            
+    await productstorepage.selectCategory(dataset.productdata.monitorcategory)
+    await alerthandler.handleAlert(dataset.productdata.productaddedalert)
+    await productstorepage.addItemToCart(dataset.productdata.monitoritem)
+    await alerthandler.handleAlert(dataset.productdata.productaddedalert)
+    const orderConfirmationText =
+    await cartpage.placeorder(dataset.productdata.monitoritem)
+    expect(orderConfirmationText.trim()).toContain('Thank you for your purchase!') 
+  
 })
 
 

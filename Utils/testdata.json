@@ -1,0 +1,38 @@
+{
+    "signup": {
+    "username": "reytest5678687989005673",
+    "password": "reytest5678687989008344",
+    "alerttext": "Sign up successful.",
+    "signuppagetitle": "STORE"
+     },
+
+    "login":{
+    "loginvalidusername":"reytest56786879890058",
+    "loginvalidpassword":"dgfdfghgfjhkkgf8",
+    "logininvalidusername":"reyatest567868",
+    "logininvalidpwd":"gjgj",
+    "alerttextincorrectuser":"User does not exist.",
+    "alerttextincorrectpwd":"Wrong password."
+    },
+    "userdetails":{
+    "name":"Rey Test",  
+    "country":"India",
+    "city":"Bangalore",
+    "creditcard":"1234567890123456",
+    "month":"12",   
+    "year":"2025",
+    "alerttext":"Thank you for your purchase!"
+  },
+  "productdata":{
+        "anyitem": "Samsung galaxy s6",
+        "phonecategory": "Phones",
+        "monitorcategory": "Monitors",
+        "phoneitem": "Iphone 6 32gb",
+        "monitoritem": "Apple monitor 24",
+        "productaddedalert": "Product added."
+    }
+  }
+
+
+  
+

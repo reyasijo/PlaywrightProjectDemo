@@ -1,5 +1,8 @@
 import { expect } from "@playwright/test"
-import { userData } from "../TestData/userData"
+//import { userData } from "../TestData/userData"
+//const userData = require('../Utils/testdata.json')
+import dataset from '../Utils/testdata.json'
+
 export class CartPage{
     constructor(page){
         this.page=page
@@ -21,15 +24,17 @@ export class CartPage{
             //this.itemincart = this.page.locator(`//td[text()='${itemname}']`)
             //await expect(this.itemincart).toBeVisible()
             await this.btnplaceorder.click()
-            await this.name.fill(userData.Name)
-            await this.country.fill(userData.Country)
-            await this.city.fill(userData.City)
-            await this.creditcard.fill(userData.Creditcard)
-            await this.month.fill(userData.Month)
-            await this.year.fill(userData.Year)
+            await this.name.fill(dataset.userdetails.name)
+            await this.country.fill(dataset.userdetails.country)
+            await this.city.fill(dataset.userdetails.city)
+            await this.creditcard.fill(dataset.userdetails.creditcard)
+            await this.month.fill(dataset.userdetails.month)
+            await this.year.fill(dataset.userdetails.year)
             await this.page.locator("//button[text()='Purchase']").click()
-            await expect(this.orderconfirmation).toHaveText('Thank you for your purchase!')
+            //console.log(this.orderconfirmation)
+            return await this.orderconfirmation.textContent()  
 
 
         }  
         }
+        

@@ -1,0 +1,2 @@
+Alert message is: Product added.
+Apple monitor 24 is added to cart1

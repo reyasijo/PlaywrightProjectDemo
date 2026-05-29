@@ -1,0 +1,4 @@
+Alert message is: Product added.
+Apple monitor 24 is added to cart1
+locator('.sweet-alert h2')
+Order confirmation text is: Thank you for your purchase!

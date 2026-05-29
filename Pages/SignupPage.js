@@ -25,11 +25,17 @@ export class SignupPage{
     async signUp()
     {
     await this.signUpbtn2.click()
+    
+    await expect(this.page.locator("//div[@class='modal-body']")).toBeVisible()
+
     }
 
     async signUpClose()
     {
         await this.signUpCloseBtn.nth(1).click()
+        const title=await this.page.title()
+        console.log("Title after close is:", title)
+        return title
     }
 
 }
